@@ -1,10 +1,10 @@
 class ProduksController < ApplicationController
   before_action :set_produk, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_admin!
   # GET /produks
   # GET /produks.json
   def index
-    @produks = Produk.all
+    @produks = Produk.all.paginate(:page => params[:page],:per_page=>5)
   end
 
   # GET /produks/1
