@@ -1,0 +1,44 @@
+<%= form_with(model: produk, local: true, multipart: true) do |form| %>
+  <% if produk.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(produk.errors.count, "error") %> prohibited this produk from being saved:</h2>
+
+      <ul>
+      <% produk.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :judul %>
+    <%= form.text_field :judul, id: :produk_judul %>
+  </div>
+
+  <div class="field">
+    <%= form.label :description %>
+    <%= form.text_area :description, id: :produk_description %>
+  </div>
+
+  <div class="field">
+    <%= form.label :image_url %>
+    <%= form.file_field :image_url, id: :produk_image_url %>
+  </div>
+
+  <div class="field">
+    <%= form.label :price %>
+    <%= form.text_field :price, id: :produk_price %>
+  </div>
+
+  <div class="field">
+    <!--<%= form.label :kategori_id %>-->
+    <!--<%= form.text_field :kategori_id, id: :produk_kategori_id %>-->
+
+    <%= form.collection_select :kategori_id, Kategori.all, :id , :kategori_with_initial, prompt: true %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
