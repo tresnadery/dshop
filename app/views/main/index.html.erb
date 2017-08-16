@@ -1,9 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Produks</h1>
+<h1>Produk</h1>
 
 <table class="table table-striped">
   <thead>
+    <tr>
+        <th colspan="6">
+            asa
+        </th>
+    </tr>
     <tr>
       <th>Judul</th>
       <th>Description</th>
@@ -20,7 +25,7 @@
         <td><%= produk.judul %></td>
         <td><%= produk.description %></td>
         <td><%= image_tag(produk.image_url,size: '100') %></td>
-        <td><%= produk.price %></td>
+        <td><%= number_to_currency(produk.price,:unit=>"Rp.") %></td>
         <td><%= produk.kategori.kategori %></td>
         <td><%= button_to 'Add to Cart', line_items_path(produk_id: produk) %></td>
       </tr>
