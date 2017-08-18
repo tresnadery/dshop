@@ -14,6 +14,7 @@
     <ul class="list-group" style="position:fixed;width:150px">
       <li class="list-group-item"><h3><center>Menu</center></h3></li>
       <% if admin_signed_in? %>
+        <li class="list-group-item"><%= link_to 'Home', produks_path %></li>
         <li class="list-group-item"><%= link_to 'New Produk', new_produk_path %></li>
         <li class="list-group-item"><%= link_to('Logout', destroy_model_session_path, method: :delete) %></li>
       <% else %>
@@ -22,15 +23,20 @@
       </li>
       <%if model_signed_in? %>
         <li class="list-group-item"><%= link_to('Profile', destroy_model_session_path, method: :delete) %></li>
+
+          <li class="list-group-item">
+
+                <%= link_to('Cart', cart_path(session[:cart_id]))  %>
+
+            <span class="circle"><%= render @cart %></span>
+          </li>
         <li class="list-group-item"><%= link_to('Logout', destroy_model_session_path, method: :delete) %></li>
       <% else %>
       <li class="list-group-item">
         <%= link_to('Login', new_model_session_path)  %>
       </li>
       <% end %>
-      <li class="list-group-item">
-        <%= link_to('Cart', carts_path)  %>
-      </li>
+
       <%  end %>
     </ul>
     </div>

@@ -1,0 +1,6 @@
+<tr>
+  <td><%= line_item.total_quantity %>&times;</td>
+  <td><%= line_item.produk.judul %></td>
+  <td class="item_price"><%= number_to_currency(line_item.total_price,:unit => "Rp") %></td>
+  <td></td>
+</tr>

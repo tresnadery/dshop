@@ -1,4 +1,4 @@
-<h2>Your Cart</h2>
+<!---<h2>Your Cart</h2>
 <table>
 
   <% @cart.line_items.each do |item| %>
@@ -8,12 +8,14 @@
       <td><%= number_to_currency(item.total_price,:unit=>"Rp.") %></td>
     </tr>
   <% end %>
-
-  <tr class="total_line">
+-->
+<!--<%= render(@cart.line_items) %>
+  <tr class="total_line">-->
       <%= @cart.total_quantity %>
-      <td colspan="2">Total</td>
+      <!--<td colspan="2">Total</td>
       <td class="total_cell"><%= number_to_currency(@cart.total_price) %></td>
   </tr>
 </table>
 
 <%= button_to 'Empty cart', @cart,method: :delete, data:{confirm: 'Are you sure?'} %>
+-->

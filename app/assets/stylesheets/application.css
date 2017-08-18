@@ -14,3 +14,13 @@
  *= require_self
  *= require bootstrap_and_overrides
  */
+.circle{
+  background: red;
+  color: white;
+  font-family: sans-serif;
+  margin-left: 10px;
+  width: auto;
+  height: auto;
+  padding: 5px 10px;
+  border-radius: 100px;
+}

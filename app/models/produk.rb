@@ -15,4 +15,11 @@ class Produk < ApplicationRecord
       throw :abort
     end
   end
+  def self.search(search)
+    if search
+      self.where("judul like ?","%#{search}%").all
+    else
+      self.all
+    end
+  end
 end
